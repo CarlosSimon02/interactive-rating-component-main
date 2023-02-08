@@ -32,7 +32,7 @@ body {
 
 
 .card {
-    background-image: linear-gradient(hsl(213, 18%, 22%),hsl(212, 19%, 16%));
+    background-image: linear-gradient(rgba(34, 41, 51, 1),rgba(23, 30, 40, 1));;
     padding: 24px;
     border-radius: 15px;
     width: 327px;
