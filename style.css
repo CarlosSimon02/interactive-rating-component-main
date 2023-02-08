@@ -1,13 +1,16 @@
 :root {
     --font-overpass: 'Overpass', sans-serif;
 
-    --orange: hsl(25, 97%, 53%);
+    --color-orange: hsl(25, 97%, 53%);
     --color-white: hsl(0, 0%, 100%);
     --color-light-grey: hsl(217, 12%, 63%);
     --color-medium-grey: hsl(216, 12%, 54%);
     --color-light-blue: rgb(52, 61, 73);
     --color-dark-blue: hsl(213, 19%, 18%);
     --color-very-dark-blue: hsl(216, 12%, 8%);
+
+    --breakpoint-mobile: 375px;
+    --breakpoint-tablet: 460px;
 }
 
 html {
@@ -27,6 +30,25 @@ body {
     background-color: var(--color-very-dark-blue);
 }
 
+
+.card {
+    background-image: linear-gradient(hsl(213, 18%, 22%),hsl(212, 19%, 16%));
+    padding: 24px;
+    border-radius: 15px;
+    width: 327px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.card__rating-state,
+.card__ty-state {
+    flex-direction: column;
+    gap: 15px;
+}
+
 h1,
 a {
     color: var(--color-white);
@@ -34,35 +56,37 @@ a {
 }
 
 p,
-option {
+li {
     color: var(--color-medium-grey);
 }
 
-.card {
-    background-color: var(--color-dark-blue);
-    padding: 24px;
-    border-radius: 15px;
-    width: 327px;
-    height: auto;
+h1 {
+    font-size: 1.5rem;
 }
 
-.card__rating-state,
-.card__ty-state {
-    gap: 20px;
+h2,
+p {
+    font-size: .875rem;
+}
+
+p {
+    line-height: 1.3rem;
+    margin-bottom: 10px;
 }
 
 .card__rating-state {
     display: flex;
-    flex-direction: column;
 }
 
-.card__rating-state__star {
+.card__rating-state__star,
+li {
     box-sizing: unset;
     padding: 12px;
     width: 15px;
     height: 15px;
     border-radius: 100%;
     background-color: var(--color-light-blue);
+    text-align: center;
 }
 
 .card__rating-state__star>img {
@@ -71,24 +95,108 @@ option {
 }
 
 .card__rating-state__select {
-    overflow: auto;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-option {
-    display: block;
+.option {
+    list-style: none;
+    cursor: pointer;
+    font-size: .9375rem;
+}
+
+.option:hover {
+    background-color: var(--color-light-grey);
+    color: var(--color-white);
 }
 
 .card__rating-state__btn {
     height: 45px;
     border-radius: 22px;
-    background-color: var(--orange);
+    background-color: var(--color-orange);
     text-align: center;
     line-height: 45px;
     font-weight: 700;
     letter-spacing: .15rem;
+    cursor: pointer;
+}
+
+.card__rating-state__btn:hover {
+    background-color: hsl(25, 90%, 62%);
+}
+
+.card__rating-state__btn:active {
+    background-color: var(--color-white);
+    color: var(--color-orange);
+}
+
+.card__rating-state__pop-up {
+    color: var(--color-orange);
+    font-size: .7rem;
+    left: 50%;
+    top: 55%;
+    font-weight: 400;
+    display: none;
 }
 
 .card__ty-state {
     display: none;
+    text-align: center;
+    align-items: center;
+}
+
+.card__ty-state__img {
+    margin-top: 10px;
+    height: 96px
+}
+
+.card__ty-state__rate-submitted {
+    display: inline-block;
+    color: var(--color-orange);
+    font-weight: 400;
+    padding: 10px 20px;
+    background-color: var(--color-light-blue);
+    box-sizing: unset;
+    border-radius: 17px;
+    margin: 20px 0;
+}
+
+@media (min-width: 460px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2,
+    p {
+        font-size: .9375rem;
+    }
+
+    p {
+        line-height: 1.5rem;
+    }
+
+    .option {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 412px;
+        padding: 34px
+    }
+
+    .card__rating-state__star,
+    li {
+        padding: 18px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .card__rating-state__select {
+        margin-bottom: 12px;
+    }
+
+    .card__ty-state__img {
+        height: 110px
+    }
 }
